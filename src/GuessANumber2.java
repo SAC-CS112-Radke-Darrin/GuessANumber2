@@ -6,27 +6,29 @@ public class GuessANumber2 {
 		// TODO Auto-generated method stub
 		Scanner inp = new Scanner(System.in);
 		
-		int compNum;
+		int cmpNum;
 		int usrNum;
-		int count = 1;
+		String ppt = "";
 		
-			do{
-				compNum = 1 + (int)(Math.random()*10);
+			do {
+				cmpNum = 1 + (int)(Math.random()*10);
 				System.out.println("Guess a number between 1 & 10.");
 				usrNum = inp.nextInt();
-				if (usrNum > compNum){
+				if (usrNum > cmpNum){
 					System.out.println("Too big.");}
-				else if (usrNum < compNum){
+				else if (usrNum < cmpNum){
 					System.out.println("Too small.");}
-				else{
-					System.out.println("Match.");}
-				count++;
-			}
-			while (count <= 3);
-								
-		System.out.println("End.");
+				else if (usrNum == cmpNum){
+					System.out.println("Match.");}}
+							
+			while (usrNum != cmpNum);{
+				System.out.println("Continue? (y/n)");
+				ppt = inp.next();}
+				if (ppt == "y");
+				else if ((ppt == "n") || (usrNum == cmpNum))
+				System.out.println("End.");
 		
 		inp.close();
-		}
+	}
 
 }
