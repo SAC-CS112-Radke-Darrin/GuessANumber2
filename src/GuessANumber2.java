@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class GuessANumber2 {
 
@@ -6,26 +7,27 @@ public class GuessANumber2 {
 		// TODO Auto-generated method stub
 		Scanner inp = new Scanner(System.in);
 		
-		int cmpNum;
-		int usrNum;
-		String ppt = "";
+		int cmpNum, usrNum;
+		String ppt;
+		cmpNum = 1 + (int)(Math.random()*10);
+		System.out.printf("%d\n", cmpNum);
 		
 			do {
-				cmpNum = 1 + (int)(Math.random()*10);
-				System.out.println("Guess a number between 1 & 10.");
-				usrNum = inp.nextInt();
+				
+				usrNum = Integer.parseInt(JOptionPane.showInputDialog("Guess a number between 1 & 10."));
 				if (usrNum > cmpNum){
-					System.out.println("Too big.");}
+					JOptionPane.showMessageDialog(null, "Too big.");}
 				else if (usrNum < cmpNum){
-					System.out.println("Too small.");}
+					JOptionPane.showMessageDialog(null, "Too small.");}
 				else if (usrNum == cmpNum){
-					System.out.println("Match.");}}
-							
-			while (usrNum != cmpNum);{
-				System.out.println("Continue? (y/n)");
-				ppt = inp.next();}
-				if (ppt == "y");
-				else if ((ppt == "n") || (usrNum == cmpNum))
+					JOptionPane.showMessageDialog(null, "Match.");}
+				else if (usrNum != cmpNum)
+					ppt = JOptionPane.showInputDialog("Continue? (y/n)");}
+			
+			while ((ppt == "y") && (usrNum != cmpNum));
+				ppt = inp.next();
+			
+			if ((ppt == "n"))
 				System.out.println("End.");
 		
 		inp.close();
